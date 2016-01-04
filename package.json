@@ -1,0 +1,33 @@
+{
+  "name": "envision-challenger-vue",
+  "version": "0.1.0",
+  "description": "envision mobile challenger html5 project by vue.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --port 2016",
+    "build": "webpack"
+  },
+  "keywords": [
+    "vue",
+    "mobile"
+  ],
+  "author": "tian.wang@envisioncn.com",
+  "dependencies": {
+    "superagent": "^1.6.1",
+    "vue": "^1.0.13",
+    "vue-router": "^0.7.7"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^1.7.0",
+    "imports-loader": "^0.6.5",
+    "json-loader": "^0.5.4",
+    "less-loader": "^2.2.2",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "vue-loader": "^7.5.2",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}

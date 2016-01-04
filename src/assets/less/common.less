@@ -1,0 +1,147 @@
+@import "lesshat.less";
+@import "UI-Foundation.less";
+@import "ionicons/ionicons.less";
+@import "envcolors.less";
+
+@app-bg:                        #085866; // touchstone magenta
+@content-bg:                    rgb(246, 246, 247);
+
+@iphone4-width:                  320px;
+@iphone4-height:                 480px;
+
+@iphone5-width:                  340px;
+@iphone5-height:                 568px;
+
+@iphone6-width:                  376px;
+@iphone6-height:                 668px;
+
+@device-width:                   @iphone6-width;
+@device-height:                  @iphone6-height;
+
+@silhouette-chrome-vertical:     50px;
+@silhouette-chrome-horizontal:   10px;
+@silhouette-width:               @device-width + (@silhouette-chrome-horizontal * 2);
+@silhouette-height:              @device-height + (@silhouette-chrome-vertical );
+@font-family-sans-serif:      "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:           "Times New Roman", Times, Georgia, serif;
+@font-family-monospace:       Courier, monospace;
+@font-family-base:            @font-family-sans-serif;
+@font-weight-bold:            500;
+
+html {
+  font-family: sans-serif; // 1
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-text-size-adjust: 100%; // 2
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;             
+  -webkit-user-select: none;   
+  margin: 0;
+}
+
+body #root {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#app {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.app-wrapper,
+.device-silhouette {
+  height: 100%;
+  width: 100%;
+}
+.app-root{
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f7;
+  line-height: 1;
+  overflow: hidden;
+  position: absolute;
+}
+.form-group-header{
+  line-height: 1rem;
+  height: 1rem;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 0.75rem;
+  color: @FormTextColor;
+}
+.form-group{
+  border-bottom: 1px solid @FormBorderColor;
+  border-top: 1px solid @FormBorderColor;
+  background-color: white;
+  margin-top: 10px;
+  .form-row{
+    line-height: 1rem;
+    height: 1rem;
+    border-bottom: 1px solid @FormBorderColor;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    .form-label{
+      float: left;
+      font-size: 1rem;
+      color: black;
+    }
+    .form-value{
+      float: right;
+      font-size: 0.75rem;
+      color: @FormTextColor;
+    }
+    &:nth-last-child(1){
+      border-bottom: 0px; 
+    }
+  }
+}  
+// mobile webview
+@media only screen and (min-width : 320px) and (max-width: 700px){
+  #app{
+    background-color: @content-bg;
+  }
+}
+
+// desktop wrapper
+@media only screen and (min-width : 480px) {
+
+  // make it pretty!
+  
+  #app {
+    background-color: @app-bg;
+  }
+
+  // center the app inside the viewport
+
+  .app-wrapper {
+    .size(@device-width,@device-height);
+    background: none;
+    left: 50%;
+    margin-left: -(@device-width / 2);
+    margin-top: -(@device-height / 2);
+    overflow: visible;
+    position: absolute;
+    top: 50%;
+  }
+
+  // nice for demonstrating on desktop
+
+  .device-silhouette {
+    .size(@silhouette-width, @silhouette-height+20);
+    box-sizing: border-box;
+    background-color: fade(black, 20%);
+    margin: -@silhouette-chrome-vertical -@silhouette-chrome-horizontal;
+    padding: @silhouette-chrome-vertical @silhouette-chrome-horizontal;
+  }
+}
