@@ -14,5 +14,7 @@
 
 module.exports = {
     urlBase: '',
-    urlLogin: '/Challenger/services/login'
+    urlLogin: '/Challenger/services/login',
+    getUserInfoUrl: function(userId) { return '/Challenger/services/user/' + userId },
+    getEnvSpiritUrl: function(userId, fromId) { return '/Challenger/services/spirit/' + userId + '?from=' + fromId },
 };

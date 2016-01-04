@@ -1,7 +1,11 @@
 <template>
     <div class="mian-container">
         <div class="tab-content">
-            <router-view transition="fade" transition-mode="out-in"></router-view>
+            <router-view 
+                transition="fade" 
+                transition-mode="out-in"
+                keep-alive>
+            </router-view>
         </div>
         <div class="footer-container">
             <mdl-tabs
@@ -30,6 +34,9 @@
                     url: '/main/more'
                 }]
             };
+        },
+        created: function() {
+            this.$root.curUserId = window.sessionStorage.getItem('current_user_id');
         },
         methods: {
             changeTab: function(tab) {

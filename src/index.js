@@ -17,6 +17,7 @@ router.map({
         component: require('./containers/login.vue')
     },
     '/main': {
+        auth: true,
         component: require('./containers/main.vue'),
         subRoutes: {
             '/personalInfo': {
@@ -35,7 +36,17 @@ router.map({
     }
 });
 
-router.beforeEach(function () {
+router.beforeEach(function (transition) {
+    if (transition.to.auth) {
+        var currentUserId = window.sessionStorage.getItem('current_user_id');
+        if (!currentUserId || currentUserId === '') {
+            transition.redirect('/login');
+        } else {
+            transition.next();
+        }
+    } else {
+        transition.next();
+    }
     window.scrollTo(0, 0);
 });
 

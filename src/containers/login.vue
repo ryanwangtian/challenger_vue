@@ -34,8 +34,10 @@
                     }))
                     .end(function(err, res) {
                         this.isFetching = false;
-                        this.$route.router.go('/main');
-                        console.log(res);
+                        if (res.ok) {
+                            window.sessionStorage.setItem('current_user_id', res.body.user_id);
+                            this.$route.router.go('/main');
+                        }
                     }.bind(this));
             }
         },
