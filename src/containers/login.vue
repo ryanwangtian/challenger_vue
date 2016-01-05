@@ -2,9 +2,22 @@
     <div class="login-form">
         <div class="logo-bg"></div>
         <div class="credentials">
-            <mdl-textfield hint-text="用户名" :value.sync="username"></mdl-textfield>
-            <mdl-textfield hint-text="密 码" :value.sync="password" type="password"></mdl-textfield>
-            <mdl-raised-button @click="login">登录</mdl-raised-button>
+            <mdl-textfield
+                hint-text="用户名"
+                :value.sync="username">
+            </mdl-textfield>
+
+            <mdl-textfield
+                hint-text="密 码"
+                :value.sync="password"
+                type="password"
+                @keyup.enter="login">
+            </mdl-textfield>
+
+            <mdl-raised-button
+                @click="login">
+                登录
+            </mdl-raised-button>
         </div>
         <loading v-if="isFetching"></loading>
     </div>
@@ -55,7 +68,7 @@
     .login-form{
         width: 100%;
         height: 100%;
-        overflow: hidden; 
+        overflow: hidden;
         .logo-bg{
             width: 142px;
             height: 159px;

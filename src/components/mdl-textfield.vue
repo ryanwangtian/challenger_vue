@@ -1,11 +1,12 @@
 <template>
-    <div class="mdl-textfield" 
+    <div class="mdl-textfield"
         :class="{ 'is-focused': focused, 'inputed': inputed, 'disabled': disabled }">
         <label>{{hintText}}</label>
-        <input :type="type"
+        <input v-el:input
+            :type="type"
             :disabled="disabled"
             v-model="value"
-            @focus="onFocus" 
+            @focus="onFocus"
             @blur="onBlur">
         <div class="clear-button"
             v-show="focused && inputed"
@@ -46,6 +47,7 @@
             },
             clearText: function() {
                 this.value = '';
+                this.$els.input.focus();
             }
         }
     };
@@ -65,12 +67,12 @@
         font-size: 16px;
         color: #ccc;
         transition: top .3s ease-out;
-    } 
+    }
     .mdl-textfield.is-focused label,
     .mdl-textfield.inputed label {
         top: 10px;
         font-size: 12px;
-    } 
+    }
     .mdl-textfield.is-focused label {
         color: rgb(0, 188, 212);
     }
@@ -99,7 +101,7 @@
         background: #555;
         position: absolute;
         right: 4px;
-        bottom: 8px;        
+        bottom: 8px;
         cursor: pointer;
     }
     .mdl-textfield .clear-button:before,
@@ -127,4 +129,3 @@
         opacity: 0;
     }
 </style>
-
