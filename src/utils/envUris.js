@@ -17,4 +17,5 @@ module.exports = {
     urlLogin: '/Challenger/services/login',
     getUserInfoUrl: function(userId) { return '/Challenger/services/user/' + userId },
     getEnvSpiritUrl: function(userId, fromId) { return '/Challenger/services/spirit/' + userId + '?from=' + fromId },
+    getUserDetailUrl: function(userId) { return '/Challenger/services/user/detail/' + userId }
 };

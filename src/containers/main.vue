@@ -58,6 +58,7 @@
         .tab-content {
             width: 100%;
             height: e("calc(100% - 48px)");
+            position: relative;
         }
 
         .footer-container {
