@@ -26,6 +26,9 @@ router.map({
             '/personalDetail': {
                 component: require('./containers/personalDetail.vue')
             },
+            '/hierarchy': {
+                component: require('./containers/hierarchy.vue')
+            },
             '/message': {
                 component: require('./containers/message.vue')
             },
