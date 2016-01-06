@@ -27,7 +27,18 @@ router.map({
                 component: require('./containers/personalDetail.vue')
             },
             '/hierarchy': {
-                component: require('./containers/hierarchy.vue')
+                component: require('./containers/hierarchy/container.vue'),
+                subRoutes: {
+                    '/': {
+                        component: require('./containers/hierarchy/horizontal.vue')
+                    },
+                    '/horizontal': {
+                        component: require('./containers/hierarchy/horizontal.vue')
+                    },
+                    '/vertical': {
+                        component: require('./containers/hierarchy/vertical.vue')
+                    }
+                }
             },
             '/message': {
                 component: require('./containers/message.vue')
