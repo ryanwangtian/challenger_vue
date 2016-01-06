@@ -1,8 +1,8 @@
 <template>
     <div class="mian-container">
         <div class="tab-content">
-            <router-view 
-                transition="fade" 
+            <router-view
+                transition="fade"
                 transition-mode="out-in"
                 keep-alive>
             </router-view>
@@ -25,7 +25,7 @@
                     url: '/main/personalInfo'
                 }, {
                     name: '人员',
-                    url: '/main/personalDetail'
+                    url: '/main/hierarchy'
                 }, {
                     name: '留言',
                     url: '/main/message'
