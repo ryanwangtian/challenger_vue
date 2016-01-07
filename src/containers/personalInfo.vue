@@ -3,7 +3,7 @@
         <div class="top-bar">
             <a class="avatar"
                 v-link="{ path: '/main/personalDetail' }">
-                <img src="../assets/images/id_user_default_80.png">
+                <div :style="{ 'background-image': 'url(/Challenger/' + userPhoto + ')' }"></div>
             </a>
             <div class="desc">
                 <label class="name">{{userInfo.cn_name}}</label>
@@ -41,6 +41,7 @@
         data: function() {
             return {
                 userInfo: {},
+                userPhoto: null,
                 envSpirit: {},
                 chartData: [{name:'意志', value: 0, color: 'rgb(234, 200, 93)'}, 
                     {name:'智慧', value: 0, color: 'rgb(77, 175, 124)'}, 
@@ -48,9 +49,10 @@
                 ]
             };
         },
-        created: function() {
+        ready: function() {
             this.fetchUserInfo();
             this.fetchEnvSpirit();
+            this.userPhoto = sessionStorage.getItem('current_user_photo');
         },
         methods: {
             fetchUserInfo: function() {
@@ -100,17 +102,24 @@
 
             a.avatar {
                 position: absolute;
-                width: 38px;
-                height: 38px;
+                box-sizing: border-box;
+                width: 40px;
+                height: 40px;
                 left: 10px;
                 top: 11px;
                 border: 1px solid rgba(0,0,0,.08);
                 border-radius: 50%;
+                overflow: hidden;
+                background: url(../assets/images/id_user_default_80.png) no-repeat;
+                background-size: contain;
                 cursor: pointer;
 
-                img {
+                > div {
                     width: 100%;
                     height: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
                 }
             }
 

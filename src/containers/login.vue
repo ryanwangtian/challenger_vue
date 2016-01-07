@@ -49,6 +49,7 @@
                         this.isFetching = false;
                         if (res.ok) {
                             window.sessionStorage.setItem('current_user_id', res.body.user_id);
+                            window.sessionStorage.setItem('current_user_photo', res.body.photo);
                             this.$route.router.go('/main');
                         }
                     }.bind(this));
