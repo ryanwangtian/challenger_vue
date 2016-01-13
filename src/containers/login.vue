@@ -20,6 +20,7 @@
             </mdl-raised-button>
         </div>
         <loading v-if="isFetching"></loading>
+        <alert></alert>
     </div>
 </template>
 
@@ -37,6 +38,15 @@
         },
         methods: {
             login: function() {
+                if (!this.username || this.username === '') {
+                    this.$broadcast('alert-error', '请输入用户名！');
+                    return;
+                }
+                if (!this.password || this.password === '') {
+                    this.$broadcast('alert-error', '请输入密码！');
+                    return;
+                }
+
                 this.isFetching = true;
                 superagent.post(envUris.urlLogin)
                     .set('Content-Type', 'application/json')
@@ -56,6 +66,7 @@
             }
         },
         components: {
+            'alert': require('../components/alert.vue'),
             'loading': require('../components/loading.vue'),
             'mdl-textfield': require('../components/mdl-textfield.vue'),
             'mdl-raised-button': require('../components/mdl-raised-button.vue')
@@ -70,6 +81,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
+        position: relative;
         .logo-bg{
             width: 142px;
             height: 159px;

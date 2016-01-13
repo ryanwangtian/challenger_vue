@@ -19,7 +19,7 @@ module.exports = {
             { test: /\.(ttf|eot|svg|woff)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' }
         ]
     },
-    // devtool: '#source-map',
+    devtool: '#source-map',
     devServer: {
         proxy: {
             '*': {
